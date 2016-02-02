@@ -1,0 +1,6 @@
+{
+  "require": {
+    "kue/kue": "*@dev",
+    "shaneharter/php-daemon": "*@dev"
+  }
+}
