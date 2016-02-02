@@ -1,6 +1,12 @@
 # KueListener
 处理队列任务
 
+
+##使用到的工具类
+[php-kue](https://github.com/hfcorriez/php-kue)
+
+后期有可能使用后台运行一些PHP脚本，加入了[php-daemon](https://github.com/shaneharter/PHP-Daemon)
+
 # 后台方式运行
 
 ## 需要安装php redis 扩展
