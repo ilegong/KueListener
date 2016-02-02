@@ -1,0 +1,95 @@
+
+Date                  PID   Label         Message
+
+Date                  PID   Label         Message
+
+Date                  PID   Label         Message
+[2016-02-02 17:20:27]    20 curl          error task /weshares/process_send_new_share_msg/59/1/300 ret error <url> malformed
+
+Date                  PID   Label         Message
+[2016-02-02 09:27:43]    20 curl          success task http://127.0.0.1/weshares/process_send_new_share_msg/59/1/300
+
+Date                  PID   Label         Message
+[2016-02-02 09:38:48]    20 curl          success task http://127.0.0.1/weshares/process_send_new_share_msg/59/1/300 ret HTTP/1.1 200 OK
+[2016-02-02 09:38:48]    20 curl          Date: Tue, 02 Feb 2016 09:38:46 GMT
+[2016-02-02 09:38:48]    20 curl          Server: Apache/2.4.16 (Unix) PHP/5.5.30
+[2016-02-02 09:38:48]    20 curl          X-Powered-By: PHP/5.5.30
+[2016-02-02 09:38:48]    20 curl          Set-Cookie: PHPSESSID=uicdk3bv6s64no3ug9mskgmg76; path=/
+[2016-02-02 09:38:48]    20 curl          Content-Length: 27
+[2016-02-02 09:38:48]    20 curl          Content-Type: text/html; charset=UTF-8
+[2016-02-02 09:38:48]    20 curl          
+[2016-02-02 09:38:48]    20 curl          {"success":true,"ret":null}
+[2016-02-02 09:38:51]    20 curl          success task http://127.0.0.1/weshares/send_new_share_msg_task/59/300/0 ret HTTP/1.1 200 OK
+[2016-02-02 09:38:51]    20 curl          Date: Tue, 02 Feb 2016 09:38:49 GMT
+[2016-02-02 09:38:51]    20 curl          Server: Apache/2.4.16 (Unix) PHP/5.5.30
+[2016-02-02 09:38:51]    20 curl          X-Powered-By: PHP/5.5.30
+[2016-02-02 09:38:51]    20 curl          Set-Cookie: PHPSESSID=u8rv11uhgqdejeuvnm7c5h9ga7; path=/
+[2016-02-02 09:38:51]    20 curl          Content-Length: 16
+[2016-02-02 09:38:51]    20 curl          Content-Type: text/html; charset=UTF-8
+[2016-02-02 09:38:51]    20 curl          
+[2016-02-02 09:38:51]    20 curl          {"success":true}
+[2016-02-02 09:38:53]    20 curl          success task http://127.0.0.1/weshares/send_new_share_msg_task/59/300/300 ret HTTP/1.1 200 OK
+[2016-02-02 09:38:53]    20 curl          Date: Tue, 02 Feb 2016 09:38:52 GMT
+[2016-02-02 09:38:53]    20 curl          Server: Apache/2.4.16 (Unix) PHP/5.5.30
+[2016-02-02 09:38:53]    20 curl          X-Powered-By: PHP/5.5.30
+[2016-02-02 09:38:53]    20 curl          Set-Cookie: PHPSESSID=vm0bkpeucl57t1fuis65t7aao7; path=/
+[2016-02-02 09:38:53]    20 curl          Content-Length: 16
+[2016-02-02 09:38:53]    20 curl          Content-Type: text/html; charset=UTF-8
+[2016-02-02 09:38:53]    20 curl          
+[2016-02-02 09:38:53]    20 curl          {"success":true}
+[2016-02-02 09:40:50]    20 curl          success task http://127.0.0.1/weshares/send_new_share_msg_task/59/300/0 ret HTTP/1.1 200 OK
+[2016-02-02 09:40:50]    20 curl          Date: Tue, 02 Feb 2016 09:40:48 GMT
+[2016-02-02 09:40:50]    20 curl          Server: Apache/2.4.16 (Unix) PHP/5.5.30
+[2016-02-02 09:40:50]    20 curl          X-Powered-By: PHP/5.5.30
+[2016-02-02 09:40:50]    20 curl          Set-Cookie: PHPSESSID=l082dcs00umbrlf6c2c5v3gu77; path=/
+[2016-02-02 09:40:50]    20 curl          Content-Length: 16
+[2016-02-02 09:40:50]    20 curl          Content-Type: text/html; charset=UTF-8
+[2016-02-02 09:40:50]    20 curl          
+[2016-02-02 09:40:50]    20 curl          {"success":true}
+[2016-02-02 09:40:52]    20 curl          success task http://127.0.0.1/weshares/send_new_share_msg_task/59/300/300 ret HTTP/1.1 200 OK
+[2016-02-02 09:40:52]    20 curl          Date: Tue, 02 Feb 2016 09:40:51 GMT
+[2016-02-02 09:40:52]    20 curl          Server: Apache/2.4.16 (Unix) PHP/5.5.30
+[2016-02-02 09:40:52]    20 curl          X-Powered-By: PHP/5.5.30
+[2016-02-02 09:40:52]    20 curl          Set-Cookie: PHPSESSID=7cpddcv91k10ja6vfut8mmnu26; path=/
+[2016-02-02 09:40:52]    20 curl          Content-Length: 16
+[2016-02-02 09:40:52]    20 curl          Content-Type: text/html; charset=UTF-8
+[2016-02-02 09:40:52]    20 curl          
+[2016-02-02 09:40:52]    20 curl          {"success":true}
+
+Date                  PID   Label         Message
+[2016-02-02 09:41:02]    20 curl          success task http://127.0.0.1/weshares/process_send_new_share_msg/59/1/300 ret HTTP/1.1 200 OK
+[2016-02-02 09:41:02]    20 curl          Date: Tue, 02 Feb 2016 09:40:47 GMT
+[2016-02-02 09:41:02]    20 curl          Server: Apache/2.4.16 (Unix) PHP/5.5.30
+[2016-02-02 09:41:02]    20 curl          X-Powered-By: PHP/5.5.30
+[2016-02-02 09:41:02]    20 curl          Set-Cookie: PHPSESSID=uqcnblooaje79odgrmcb48gg90; path=/
+[2016-02-02 09:41:02]    20 curl          Content-Length: 27
+[2016-02-02 09:41:02]    20 curl          Content-Type: text/html; charset=UTF-8
+[2016-02-02 09:41:02]    20 curl          
+[2016-02-02 09:41:02]    20 curl          {"success":true,"ret":null}
+[2016-02-02 09:42:30]    20 curl          success task http://127.0.0.1/weshares/send_new_share_msg_task/59/300/0 ret HTTP/1.1 200 OK
+[2016-02-02 09:42:30]    20 curl          Date: Tue, 02 Feb 2016 09:42:28 GMT
+[2016-02-02 09:42:30]    20 curl          Server: Apache/2.4.16 (Unix) PHP/5.5.30
+[2016-02-02 09:42:30]    20 curl          X-Powered-By: PHP/5.5.30
+[2016-02-02 09:42:30]    20 curl          Set-Cookie: PHPSESSID=k49oq2c40ub45lq8t5agj06dc6; path=/
+[2016-02-02 09:42:30]    20 curl          Content-Length: 16
+[2016-02-02 09:42:30]    20 curl          Content-Type: text/html; charset=UTF-8
+[2016-02-02 09:42:30]    20 curl          
+[2016-02-02 09:42:30]    20 curl          {"success":true}
+[2016-02-02 09:42:32]    20 curl          success task http://127.0.0.1/weshares/send_new_share_msg_task/59/300/300 ret HTTP/1.1 200 OK
+[2016-02-02 09:42:32]    20 curl          Date: Tue, 02 Feb 2016 09:42:31 GMT
+[2016-02-02 09:42:32]    20 curl          Server: Apache/2.4.16 (Unix) PHP/5.5.30
+[2016-02-02 09:42:32]    20 curl          X-Powered-By: PHP/5.5.30
+[2016-02-02 09:42:32]    20 curl          Set-Cookie: PHPSESSID=39g7adf1fuadf4dg2i63aeduv5; path=/
+[2016-02-02 09:42:32]    20 curl          Content-Length: 16
+[2016-02-02 09:42:32]    20 curl          Content-Type: text/html; charset=UTF-8
+[2016-02-02 09:42:32]    20 curl          
+[2016-02-02 09:42:32]    20 curl          {"success":true}
+[2016-02-02 09:42:33]    20 curl          success task http://127.0.0.1/weshares/process_send_new_share_msg/59/1/300 ret HTTP/1.1 200 OK
+[2016-02-02 09:42:33]    20 curl          Date: Tue, 02 Feb 2016 09:42:27 GMT
+[2016-02-02 09:42:33]    20 curl          Server: Apache/2.4.16 (Unix) PHP/5.5.30
+[2016-02-02 09:42:33]    20 curl          X-Powered-By: PHP/5.5.30
+[2016-02-02 09:42:33]    20 curl          Set-Cookie: PHPSESSID=2a0jii6jkui3vnp4nt3j984pm3; path=/
+[2016-02-02 09:42:33]    20 curl          Content-Length: 27
+[2016-02-02 09:42:33]    20 curl          Content-Type: text/html; charset=UTF-8
+[2016-02-02 09:42:33]    20 curl          
+[2016-02-02 09:42:33]    20 curl          {"success":true,"ret":null}

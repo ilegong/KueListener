@@ -3,6 +3,7 @@ require_once 'vendor/autoload.php';
 
 use Kue\Kue;
 
+
 $kue = Kue::createQueue();
 // Process all types
 $kue->process('curl', function ($job) {
@@ -14,7 +15,7 @@ $kue->process('curl', function ($job) {
 
 function execute_curl($data)
 {
-    $url = '' . $data['url'];
+    $url = 'http://127.0.0.1' . $data['url'];
     $s = curl_init();
     curl_setopt($s, CURLOPT_URL, $url);
     curl_setopt($s, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
@@ -22,19 +23,21 @@ function execute_curl($data)
     curl_setopt($s, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($s, CURLOPT_HEADER, 1);
     curl_setopt($s, CURLINFO_HEADER_OUT, true);
-    curl_setopt($s, CURLOPT_HTTPHEADER, $this->genReqestHeader($data));
+    curl_setopt($s, CURLOPT_HTTPHEADER, genReqestHeader($data));
     curl_setopt($s, CURLOPT_POST, false);
-    curl_setopt($s, CURLOPT_POSTFIELDS, base64_decode($data['postdata']));
+    if($data['form_data']){
+        curl_setopt($s, CURLOPT_POSTFIELDS, base64_decode($data['form_data']));
+    }
     $ret = curl_exec($s);
     $info = curl_getinfo($s);
     $error = curl_error($s);
     curl_close($s);
     if (empty($info['http_code'])) {
-        log($error);
+        LogHelper::add_log_to_file('error task ' . $url . ' ret error ' . $error . $ret, 'curl');
     } else if ($info['http_code'] != 200) {
-        log("taskqueue service internal error, httpcode isn't 200, code:" . $info['http_code']);
+        LogHelper::add_log_to_file('error task ' . $url . ' ret error ' . $error . $ret, 'curl');
     } else {
-        log('execute ' . $url . ' success result ' . $ret);
+        LogHelper::add_log_to_file('success task ' . $url . ' ret '.$ret, 'curl');
         return true;
     }
     return false;
@@ -54,4 +57,53 @@ function genReqestHeader()
     //print_r($reqhead);
     $reqhead = array("TimeStamp: $timestamp");
     return $reqhead;
+}
+
+
+/**
+ * Class LogHelper
+ * write queue task execute log to file
+ */
+class LogHelper{
+
+    static $log_handle = false;
+    static $log_file = '';
+    static $log_file_check_at = 0;
+    static $log_file_error = false;
+
+    public static function add_log_to_file($message, $label = '', $indent = 0){
+        $header = "\nDate                  PID   Label         Message\n";
+        $date   = date("Y-m-d H:i:s");
+        $pid    = str_pad(getmypid(), 5, " ", STR_PAD_LEFT);
+        $label  = str_pad(substr($label, 0, 12), 13, " ", STR_PAD_RIGHT);
+        $prefix = "[$date] $pid $label" . str_repeat("\t", $indent);
+
+        if (time() >= self::$log_file_check_at && self::log_file() != self::$log_file) {
+            self::$log_file = self::log_file();
+            self::$log_file_check_at = mktime(date('H'), (date('i') - (date('i') % 5)) + 5, null);
+            @fclose(self::$log_handle);
+            self::$log_handle = $log_file_error = false;
+        }
+
+        if (self::$log_handle === false) {
+            if (strlen(self::$log_file) > 0 && self::$log_handle = @fopen(self::$log_file, 'a+')) {
+                fwrite(self::$log_handle, $header);
+            } elseif (!self::$log_file_error) {
+                self::$log_file_error = true;
+                trigger_error(__CLASS__ . "Error: Could not write to logfile " . self::$log_file, E_USER_WARNING);
+            }
+        }
+        $message = $prefix . ' ' . str_replace("\n", "\n$prefix ", trim($message)) . "\n";
+        if (!empty(self::$log_handle)){
+            fwrite(self::$log_handle, $message);
+        }
+    }
+
+    static function log_file() {
+        $dir = './log/KueListener/';
+        if (@file_exists($dir) == false)
+            @mkdir($dir, 0777, true);
+        return $dir . '/log_' . date('Ymd').'.log';
+    }
+
 }
