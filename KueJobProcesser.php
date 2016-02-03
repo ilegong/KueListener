@@ -15,7 +15,7 @@ $kue->process('curl', function ($job) {
 
 function execute_curl($data)
 {
-    $url = 'http://127.0.0.1' . $data['url'];
+    $url = 'http://test.tongshijia.com' . $data['url'];
     $s = curl_init();
     curl_setopt($s, CURLOPT_URL, $url);
     curl_setopt($s, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
@@ -55,7 +55,7 @@ function genReqestHeader()
     //$cont1 = "ACCESSKEY" . $this->_accesskey . "TIMESTAMP" . $timestamp;
     //$reqhead = array("TimeStamp: $timestamp", "AccessKey: " . $this->_accesskey, "Signature: " . $this->genSignature($cont1, $this->_secretkey));
     //print_r($reqhead);
-    $reqhead = array("TimeStamp: $timestamp");
+    $reqhead = array("TimeStamp: $timestamp", "Referer: http://test.tongshijia.com");
     return $reqhead;
 }
 
