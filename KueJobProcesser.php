@@ -15,7 +15,7 @@ $kue->process('curl', function ($job) {
 
 function execute_curl($data)
 {
-    $url = 'http://test.tongshijia.com' . $data['url'];
+    $url = 'http://www.tongshijia.com' . $data['url'];
     $s = curl_init();
     curl_setopt($s, CURLOPT_URL, $url);
     curl_setopt($s, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
