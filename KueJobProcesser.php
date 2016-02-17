@@ -24,7 +24,7 @@ function execute_curl($data)
     $s = curl_init();
     curl_setopt($s, CURLOPT_URL, $url);
     curl_setopt($s, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
-    curl_setopt($s, CURLOPT_TIMEOUT, 5);
+    curl_setopt($s, CURLOPT_TIMEOUT, 30);
     curl_setopt($s, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($s, CURLOPT_HEADER, 1);
     curl_setopt($s, CURLINFO_HEADER_OUT, true);
