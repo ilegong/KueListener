@@ -26,7 +26,9 @@ function execute_curl($data)
     curl_setopt($s, CURLOPT_HTTPHEADER, genReqestHeader($data));
     curl_setopt($s, CURLOPT_POST, true);
     if ($data['form_data']) {
-        curl_setopt($s, CURLOPT_POSTFIELDS, base64_decode($data['form_data'], true));
+        $decodePostData = base64_decode($data['form_data'], true);
+        LogHelper::add_log_to_file('task post data ' . $decodePostData);
+        curl_setopt($s, CURLOPT_POSTFIELDS, $decodePostData);
     }
     $ret = curl_exec($s);
     $info = curl_getinfo($s);
