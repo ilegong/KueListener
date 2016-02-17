@@ -24,8 +24,8 @@ function execute_curl($data)
     curl_setopt($s, CURLOPT_HEADER, 1);
     curl_setopt($s, CURLINFO_HEADER_OUT, true);
     curl_setopt($s, CURLOPT_HTTPHEADER, genReqestHeader($data));
-    curl_setopt($s, CURLOPT_POST, false);
-    if($data['form_data']){
+    curl_setopt($s, CURLOPT_POST, true);
+    if ($data['form_data']) {
         curl_setopt($s, CURLOPT_POSTFIELDS, base64_decode($data['form_data'], true));
     }
     $ret = curl_exec($s);
@@ -37,7 +37,7 @@ function execute_curl($data)
     } else if ($info['http_code'] != 200) {
         LogHelper::add_log_to_file('error task ' . $url . ' ret error ' . $error . $ret, 'curl');
     } else {
-        LogHelper::add_log_to_file('success task ' . $url . ' ret '.$ret, 'curl');
+        LogHelper::add_log_to_file('success task ' . $url . ' ret ' . $ret, 'curl');
         return true;
     }
     return false;
@@ -55,7 +55,7 @@ function genReqestHeader()
     //$cont1 = "ACCESSKEY" . $this->_accesskey . "TIMESTAMP" . $timestamp;
     //$reqhead = array("TimeStamp: $timestamp", "AccessKey: " . $this->_accesskey, "Signature: " . $this->genSignature($cont1, $this->_secretkey));
     //print_r($reqhead);
-    $reqhead = array("TimeStamp: $timestamp", "Referer: http://test.tongshijia.com");
+    $reqhead = array("TimeStamp: $timestamp", "Referer: http://www.tongshijia.com");
     return $reqhead;
 }
 
