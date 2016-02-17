@@ -9,7 +9,12 @@ $kue = Kue::createQueue();
 $kue->process('curl', function ($job) {
     // Process logic
     $data = $job->data;
-    execute_curl($data);
+    $result = execute_curl($data);
+    if($result){
+        $job->complete();
+    }else{
+        $job->failed();
+    }
 });
 
 
