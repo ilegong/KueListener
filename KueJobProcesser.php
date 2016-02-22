@@ -28,7 +28,7 @@ function execute_curl($data)
     curl_setopt($s, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($s, CURLOPT_HEADER, 1);
     curl_setopt($s, CURLINFO_HEADER_OUT, true);
-    curl_setopt($s, CURLOPT_HTTPHEADER, genReqestHeader($data));
+    curl_setopt($s, CURLOPT_HTTPHEADER, genReqestHeader());
     curl_setopt($s, CURLOPT_POST, true);
     if ($data['form_data']) {
         $decodePostData = base64_decode($data['form_data'], true);
