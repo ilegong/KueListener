@@ -29,12 +29,14 @@ function execute_curl($data)
     curl_setopt($s, CURLOPT_HEADER, 1);
     curl_setopt($s, CURLINFO_HEADER_OUT, true);
     curl_setopt($s, CURLOPT_HTTPHEADER, genReqestHeader());
-    curl_setopt($s, CURLOPT_POST, true);
+    $is_post = false;
     if ($data['form_data']) {
         $decodePostData = base64_decode($data['form_data'], true);
         LogHelper::add_log_to_file('task post data ' . $decodePostData);
         curl_setopt($s, CURLOPT_POSTFIELDS, $decodePostData);
+        $is_post = true;
     }
+    curl_setopt($s, CURLOPT_POST, $is_post);
     $ret = curl_exec($s);
     $info = curl_getinfo($s);
     $error = curl_error($s);
